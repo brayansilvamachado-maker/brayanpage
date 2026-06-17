@@ -56,9 +56,14 @@ width: 120px;
 width: 38px;
 padding: 4px 8px;
 }
-.estudante{
-background-image: background-color(#faae43);
+
+.estudante {
+background-color: #faae43; 
 padding: 24px 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
 }
 
 .estudante.div{
