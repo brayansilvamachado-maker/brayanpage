@@ -6,7 +6,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #22252a;
+    background-color: #22252a; 
     color: white;
 }
 
@@ -14,7 +14,6 @@ header {
     background-color: #141619; 
     width: 100%;
     padding: 20px;
-    position: relative;
 }
 
 .cabecalho-itens {
@@ -24,7 +23,6 @@ header {
     align-items: center;
     justify-content: space-between;
 }
-
 
 .cabecalho_imagem {
     height: 140px; 
@@ -45,14 +43,13 @@ header {
 .banner1 {
     display: flex;
     justify-content: center;
-    margin-top: -140px;
+    margin-top: -140px; 
     margin-left: auto;
     margin-right: auto;
     max-width: 600px;
 }
 
-
-.banner1 img, .escola\.image {
+.banner1 img {
     width: 100%;
     height: 130px;
     object-fit: cover;
@@ -73,9 +70,8 @@ header {
     padding: 10px 0;
 }
 
-
 .estudante-div {
-    background-color: #2b2e33;
+    background-color: #2b2e33; 
     border: 1px solid #34383f; 
     border-radius: 10px;
     padding: 15px;
@@ -87,16 +83,14 @@ header {
     text-align: center;
 }
 
-
 .estudantes_todos {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr); 
     gap: 15px; 
     max-width: 1250px;
     margin: 0 auto;
     padding: 10px 20px;
 }
-
 
 section.estudante:last-of-type {
     padding-bottom: 160px;
@@ -120,7 +114,6 @@ section.estudante:last-of-type {
     width: 20px;
     height: 20px;
 }
-
 
 .escola {
     background-color: #3a81f6;
