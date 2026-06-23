@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    background-color: #141619;
+    background-color: #141619; 
     width: 100%;
     padding: 20px;
 }
@@ -30,7 +30,7 @@ header {
 }
 
 .titulo_site {
-    display: none;
+    display: none; 
 }
 
 .sociais {
@@ -65,15 +65,15 @@ header {
     font-weight: 600;
 }
 
-
 .estudante {
     background-color: transparent; 
     padding: 10px;
 }
 
+
 .estudante-div, .estudante.div {
     background-color: #2b2e33;
-    border: 1px solid #34383f;
+    border: 1px solid #34383f; 
     border-radius: 10px;
     padding: 15px;
     display: flex;
@@ -85,13 +85,14 @@ header {
     width: 100%;
 }
 
+
 .estudantes_todos {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 15px; 
     max-width: 1250px;
     margin: 0 auto;
-    padding: 0 20px 120px 20px;
+    padding: 0 20px 140px 20px;
 }
 
 .estudante-imagem {
@@ -124,9 +125,18 @@ header {
     z-index: 10;
 }
 
+.escola-titulo {
+    display: none;
+}
+
 .logo_rodape {
     height: 30px;
     width: auto;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
 }
 
 a {
