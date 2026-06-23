@@ -5,10 +5,10 @@ box-sizing: border-box;
 }
 body{
 font-family: "Poppins", sans-serif;
+background-color: #212529;color: white;
 }
 header{
-background-color: hsl(0, 0%, 100%);
-color: rgb(255, 255, 255);
+background-color: #1a1d20;
 width: 100%;
 padding: 20px;
 }
@@ -17,19 +17,14 @@ max-width: 1980px;
 margin: 0 auto;
 display: flex;
 align-items: center;
-justify-content: center;
+justify-content: space-between;
 }
 .cabecalho-imagem{
-width: 10%;
-display: flex;
-justify-content: flex-start;
-align-items: center;
+height: 150px; 
+width: auto;
 }
 .titulo_site{
-padding: 50px;
-text-align: center;
-width: 50%;
-font: 30px;
+display: none;
 }
 .sociais{
 display: flex;
@@ -40,57 +35,85 @@ padding-right: 30px;
 .banner1{
 display: flex;
 justify-content: center;
+margin-top: -160px;
+margin-left: 320px;
+margin-right: 120px;
+}
+.escola\.image {
+    width: 100%;
+    max-width: 650px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
 .estudante_titulo{
-padding: 50px;
-text-align: center;
-
+padding: 40px;
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
 }
 .estudante-nome{
-text-align: center;
+font-size: 16px;
+margin: 12px 0 8px 0;
+color: white;
 }
 .estudante-imagem{
-width: 120px;
+width: 100%;
+max-width: 140px;
+height: 85px;
+object-fit: cover;
+border-radius: 6px;
 }
 .estudante-icone{
-width: 38px;
-padding: 4px 8px;
+width: 22px;
+height: 22px;
 }
 
 .estudante {
-background-color: white; 
-padding: 24px 0;
-display: flex;
-flex-direction: column;
-align-items: center;
-text-align: center;
+background-color: transparent; 
+padding: 20px;
 }
 
 .estudante.div{
-text-align: center;
-padding: 24px 0;
-}
-.estudantes_todos{
+background-color: #2c3034;
+border-radius: 12px;
+padding: 15px;
 display: flex;
-justify-content: space-around;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+text-align: center;
+}
+
+
+.estudantes_todos{
+display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-bottom: 100px;
 }
 .escola{
-background-image: linear-gradient(#40A2E3,#7FC2EF);
-color: rgb(116, 204, 255);
-display: flex;
-justify-content:center;
-padding: 24px 0;
-text-align:center;
-display:block;
+background-color: #3b82f6;
+color: white;
+padding: 12px 0;
+text-align: center;
+position: fixed;
+bottom: 0;
+width: 100%;
+z-index: 10;
 }
 .escola-titulo{
 padding: 50px;
 text-align: center;
 }
 .logo_rodape{
-height: 80px;
-padding: 12px 0;
-
+height: 30px;
+width: auto;
 }
 
 .link{
