@@ -7,7 +7,7 @@
 body {
     font-family: "Poppins", sans-serif;
     background-color: #22252a; 
-    color: white;
+    color: #ffffff;
 }
 
 header {
@@ -76,7 +76,7 @@ header {
 .estudante_titulo {
     padding: 35px;
     text-align: center;
-    color: white;
+    color: #ffffff;
     font-size: 26px;
     font-weight: 600;
 }
@@ -139,7 +139,7 @@ section.estudante:last-of-type {
 .estudante-nome {
     font-size: 15px;
     margin: 10px 0 6px 0;
-    color: #e0e0e0;
+    color: #ffffff;
 }
 
 .estudante-icone {
