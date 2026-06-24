@@ -153,6 +153,55 @@ section.estudante:last-of-type {
     justify-content: center;
 }
 
+.secao-titulo {
+    margin: 34px 0 18px;
+    text-align: center;
+    color: #f5c542;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-style: italic;
+    letter-spacing: 0;
+}
+
+.mapa {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.mapa-iframe {
+    width: 100%;
+    height: 280px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.galeria {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 20px 180px;
+}
+
+.galeria-imagens {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.galeria-imagens img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-imagens img:hover {
+    transform: scale(1.06);
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.55);
+}
+
 .escola {
     background-color: #3a81f6;
     color: white;
@@ -184,6 +233,10 @@ a {
         gap: 22px;
         max-width: 720px;
     }
+
+    .galeria-imagens {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 520px) {
@@ -196,5 +249,13 @@ a {
     .trio-imagem {
         max-width: 280px;
         height: auto;
+    }
+
+    .galeria-imagens {
+        grid-template-columns: 1fr;
+    }
+
+    .mapa-iframe {
+        height: 220px;
     }
 }
