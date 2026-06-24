@@ -22,15 +22,26 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 24px;
 }
 
 .cabecalho_imagem {
     height: 140px; 
-    width: auto;
+    width: 25%;
+    object-fit: contain;
 }
 
 .titulo_site {
-    display: none; 
+    display: block;
+    flex: 1;
+    text-align: center;
+    color: #f5c542;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-shadow: 0px 2px 8px rgba(245, 197, 66, 0.35);
 }
 
 .sociais {
@@ -38,6 +49,11 @@ header {
     justify-content: flex-end;
     width: 25%;
     padding-right: 30px;
+}
+
+.social-icone {
+    width: 32px;
+    height: 32px;
 }
 
 .banner1 {
@@ -70,11 +86,26 @@ header {
     padding: 10px 0;
 }
 
+.trio-banner {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.trio-imagem {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
 .estudante-div {
     background-color: #2b2e33; 
     border: 1px solid #34383f; 
     border-radius: 10px;
-    padding: 15px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,11 +116,12 @@ header {
 
 .estudantes_todos {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); 
-    gap: 15px; 
-    max-width: 1250px;
+    grid-template-columns: repeat(6, 150px); 
+    justify-content: center;
+    gap: 16px; 
+    max-width: 1040px;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 10px 16px;
 }
 
 section.estudante:last-of-type {
@@ -99,7 +131,7 @@ section.estudante:last-of-type {
 .estudante-imagem {
     width: 100%;
     max-width: 130px;
-    height: 80px;
+    height: 82px;
     object-fit: cover;
     border-radius: 4px;
 }
@@ -111,8 +143,14 @@ section.estudante:last-of-type {
 }
 
 .estudante-icone {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
+}
+
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .escola {
@@ -138,4 +176,25 @@ section.estudante:last-of-type {
 
 a {
     text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .estudantes_todos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 520px) {
+    .estudantes_todos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        padding: 12px 18px;
+    }
+
+    .trio-imagem {
+        max-width: 280px;
+        height: auto;
+    }
 }
