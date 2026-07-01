@@ -163,19 +163,7 @@ section.estudante:last-of-type {
     letter-spacing: 0;
 }
 
-.mapa {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
-.mapa-iframe {
-    width: 100%;
-    height: 280px;
-    border: 0;
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
-}
 
 .galeria {
     max-width: 1040px;
