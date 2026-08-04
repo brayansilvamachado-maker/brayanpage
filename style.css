@@ -246,37 +246,40 @@ a {
     .mapa-iframe {
         height: 220px;
     }
-    
-    /* Container Flex para alinhar a imagem e o vídeo lado a lado */
+
+    /* Container que coloca a foto à esquerda e o vídeo à direita */
 .destaque-midia {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 30px; /* Espaço entre a foto e o vídeo */
-    flex-wrap: wrap; /* Em ecrãs pequenos, o vídeo passa para baixo */
-    margin-bottom: 40px;
-    padding: 0 20px;
+    align-items: flex-end; /* Alinha a base da foto e do vídeo */
+    gap: 24px;
+    margin-bottom: 0px; /* Sem espaço extra abaixo para não afastar das seleções */
 }
 
-/* Ajustes da caixa do vídeo */
+.trio-banner {
+    margin-bottom: 0; /* Remove a margem original */
+}
+
+/* Caixa do vídeo ajustada */
 .container-video {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
 }
 
 .titulo-video {
     font-size: 18px;
     color: #f5c542;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     font-family: Georgia, "Times New Roman", serif;
     font-style: italic;
 }
 
 .container-video iframe {
+    width: 420px; /* Vídeo maior */
+    height: 250px;
     border-radius: 8px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
-    max-width: 100%;
+
 }
 }
