@@ -247,56 +247,69 @@ a {
         height: 220px;
     }
 
-    /* Container que coloca a foto à esquerda e o vídeo à direita */
+ /* Container principal que força um do lado do outro */
 .destaque-midia {
     display: flex;
-    justify-content: center;
-    align-items: flex-end; /* Alinha a base da foto e do vídeo */
-    gap: 24px;
-    margin-bottom: 0px; /* Sem espaço extra abaixo para não afastar das seleções */
+    justify-content: center; /* Centraliza o bloco todo na tela */
+    align-items: stretch;    /* Faz o banner e o vídeo terem a mesma altura */
+    gap: 30px;               /* Distância exata entre o banner e o vídeo */
+    max-width: 1040px;       /* Largura máxima da seção */
+    margin: 0 auto 40px;     /* Centraliza o container e afasta dos elementos de baixo */
+    padding: 0 20px;
 }
 
+/* Força o banner a ocupar o lado esquerdo proporcionalmente */
 .trio-banner {
-    margin-bottom: 0; /* Remove a margem original */
-}
-
-/* Caixa do vídeo ajustada */
-.cobody {
+    flex: 1;
     display: flex;
-    /* Altera de center para flex-end para jogar todo o conteúdo para a direita */
-    justify-content: flex-end; 
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #1c1c1c; 
 }
 
+.trio-imagem {
+    width: 100%;
+    height: 100px;          /* Ajuste essa altura para combinar com o vídeo se necessário */
+    object-fit: cover;       /* Corta a imagem elegantemente sem distorcer */
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Força o vídeo a ocupar o lado direito proporcionalmente */
 .container-video {
-    position: fixed;       /* Mantém o vídeo isolado na lateral sem quebrar o meio do site */
-    right: 40px;           /* Distância da borda direita da tela (ajuste se quiser mais perto do canto) */
-    top: 180px;            /* Move o vídeo para cima, deixando-o logo abaixo do nível do banner */
-    
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    z-index: 999;          /* Garante que o player fique visível sobre o plano de fundo */
+    justify-content: space-between;
 }
 
-/* Garante que o texto do título fique visível sobre o fundo escuro */
+
 .titulo-video {
     color: #ffffff;
     margin-bottom: 10px;
-    font-size: 16px;       /* Tamanho ideal para não brigar com o título principal */
+    font-size: 18px;
+    text-align: center;
 }
 
 
 
 .container-video iframe {
-    width: 420px; 
-    height: 250px;
+    width: 100%;
+    height: 100%;           /* Preenche o espaço ao lado do banner */
+    min-height: 250px;       /* Altura mínima garantida para o player */
     border-radius: 8px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
 }
+
+/* Responsividade: Em telas menores, eles ficam um embaixo do outro */
+@media (max-width: 800px) {
+    .destaque-midia {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .trio-banner, .container-video {
+        width: 100%;
+        max-width: 500px;   /* Evita que fiquem gigantescos no celular */
+    }
+}
+
 
 }
