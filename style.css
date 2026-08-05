@@ -261,23 +261,25 @@ a {
 }
 
 /* Caixa do vídeo ajustada */
-.container-video {
-    /* Centraliza tudo na tela inteira */
-body {
+.cobody {
     display: flex;
-    justify-content: center;
+    /* Altera de center para flex-end para jogar todo o conteúdo para a direita */
+    justify-content: flex-end; 
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #1c1c1c; /* Cor de fundo opcional */
+    background-color: #1c1c1c; 
 }
 
 .container-video {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center; /* Garante que o texto também alinhe ao centro */
+    text-align: center; 
+    /* Adiciona um espaçamento de 40px para o vídeo não colar na borda direita da tela */
+    margin-right: 40px; 
 }
+
 
 .titulo-video {
     font-size: 18px;
@@ -294,5 +296,4 @@ body {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-}
 }
