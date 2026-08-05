@@ -271,27 +271,25 @@ a {
     background-color: #1c1c1c; 
 }
 
-/* Remova as alterações feitas anteriormente no 'body' para não estragar o meio do seu site */
-
 .container-video {
-    position: fixed;       /* Fixa o elemento em relação à tela do navegador */
-    right: 40px;           /* Distância da borda direita da tela */
-    top: 50%;              /* Move o topo do container até a metade da tela */
-    transform: translateY(-50%); /* Ajuste matemático perfeito para centralizar na vertical */
+    position: fixed;       /* Mantém o vídeo isolado na lateral sem quebrar o meio do site */
+    right: 40px;           /* Distância da borda direita da tela (ajuste se quiser mais perto do canto) */
+    top: 180px;            /* Move o vídeo para cima, deixando-o logo abaixo do nível do banner */
     
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    z-index: 999;          /* Garante que o vídeo fique por cima do fundo */
+    z-index: 999;          /* Garante que o player fique visível sobre o plano de fundo */
 }
 
-/* Opcional: Garante que o texto do título fique com uma cor visível no fundo escuro */
+/* Garante que o texto do título fique visível sobre o fundo escuro */
 .titulo-video {
     color: #ffffff;
     margin-bottom: 10px;
-    font-family: sans-serif;
+    font-size: 16px;       /* Tamanho ideal para não brigar com o título principal */
 }
+
 
 
 .container-video iframe {
