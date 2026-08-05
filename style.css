@@ -247,68 +247,65 @@ a {
         height: 220px;
     }
 
- /* Container principal que força um do lado do outro */
+/* Container que força os dois elementos a ficarem na mesma linha */
 .destaque-midia {
     display: flex;
-    justify-content: center; /* Centraliza o bloco todo na tela */
-    align-items: stretch;    /* Faz o banner e o vídeo terem a mesma altura */
-    gap: 30px;               /* Distância exata entre o banner e o vídeo */
-    max-width: 1040px;       /* Largura máxima da seção */
-    margin: 0 auto 40px;     /* Centraliza o container e afasta dos elementos de baixo */
+    justify-content: center;
+    align-items: flex-end; /* Alinha a base da foto com a do vídeo */
+    gap: 30px;               /* Espaço entre a foto e o vídeo */
+    max-width: 1040px;
+    margin: 0 auto 40px auto;
     padding: 0 20px;
 }
 
-/* Força o banner a ocupar o lado esquerdo proporcionalmente */
+/* Define um tamanho fixo para o bloco da foto */
 .trio-banner {
-    flex: 1;
-    display: flex;
+    width: 360px;
+    margin-bottom: 0;
 }
 
 .trio-imagem {
     width: 100%;
-    height: 100px;          /* Ajuste essa altura para combinar com o vídeo se necessário */
-    object-fit: cover;       /* Corta a imagem elegantemente sem distorcer */
-    border-radius: 8px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Força o vídeo a ocupar o lado direito proporcionalmente */
+/* Define um tamanho fixo para o bloco do vídeo */
 .container-video {
-    flex: 1;
+    width: 360px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
+    align-items: center;
 
+
+
+
+}
 
 .titulo-video {
     color: #ffffff;
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
 }
 
-
-
+/* Garante que o iframe respeite o tamanho do container */
 .container-video iframe {
     width: 100%;
-    height: 100%;           /* Preenche o espaço ao lado do banner */
-    min-height: 250px;       /* Altura mínima garantida para o player */
+    height: 215px;
     border-radius: 8px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Responsividade: Em telas menores, eles ficam um embaixo do outro */
+/* Responsividade: Se a tela for menor que 800px (celular), joga o vídeo para baixo */
 @media (max-width: 800px) {
     .destaque-midia {
         flex-direction: column;
         align-items: center;
     }
-    
-    .trio-banner, .container-video {
-        width: 100%;
-        max-width: 500px;   /* Evita que fiquem gigantescos no celular */
-    }
+
 }
 
 
