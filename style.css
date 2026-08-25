@@ -307,32 +307,36 @@ ul li a:hover {
     color: #ffffff;
 }
 
-/* --- ALTERAÇÕES DAQUI PARA BAIXO PARA DEIXAR BRANCO --- */
+/* --- ESTILO DA NOTÍCIA JOGADA PARA A ESQUERDA --- */
 
-/* Força o fundo da página de notícias a ficar branco */
+/* Fundo da página branco */
 .pagina-noticias-bg {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
+/* Deixa o container ocupar a largura da tela e alinha o bloco na esquerda */
 .noticia-pagina {
-    padding: 40px 20px;
+    width: 100%;
+    padding: 40px 30px; /* Dá um espacinho confortável do canto da tela */
+    display: flex;
+    justify-content: flex-start; /* Empurra a notícia totalmente para a esquerda */
 }
 
-/* Quadrado em volta: mudou para fundo claro e borda cinza */
+/* O quadrado em volta da notícia: ajustado para o tamanho de uma coluna da esquerda */
 .noticia-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 25px;
+    width: 100%;
+    max-width: 400px; /* Deixa o bloco com tamanho de coluna, abrindo espaço para as outras depois */
     background-color: #f8f9fa; 
     border: 1px solid #dee2e6; 
     border-radius: 10px;
+    padding: 25px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Título mudou para cor escura e sem estilo itálico */
+/* Título alinhado no cantinho */
 .noticia-titulo {
-    font-size: 32px;
+    font-size: 24px;
     color: #212529; 
     font-family: Arial, sans-serif;
     margin-bottom: 12px;
@@ -342,9 +346,9 @@ ul li a:hover {
     text-shadow: none;
 }
 
-/* Subtítulo mudou para cinza escuro e borda clara */
+/* Subtítulo alinhado no cantinho */
 .noticia-subtitulo {
-    font-size: 16px;
+    font-size: 14px;
     color: #6c757d; 
     margin-bottom: 20px;
     border-bottom: 1px solid #dee2e6; 
@@ -352,18 +356,9 @@ ul li a:hover {
     font-style: normal;
 }
 
-.noticia-imagem-corpo {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px auto;
-    border-radius: 6px;
-}
-
-/* Texto do corpo mudou para cinza escuro e alinhado na esquerda */
+/* Texto do corpo na esquerda */
 .noticia-conteudo p {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
     margin-bottom: 16px;
     color: #495057; 
