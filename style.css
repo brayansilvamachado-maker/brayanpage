@@ -282,7 +282,7 @@ ul li a:hover {
 }
 
 
-/* --- CORREÇÃO DO MENU E ESTILO DA NOTÍCIA --- */
+/* --- CORREÇÃO DO MENU E ESTILO DA NOTÍCIA COMPLETO --- */
 .menu-navegacao {
     display: flex;
     list-style-type: none;
@@ -300,6 +300,7 @@ ul li a:hover {
     text-decoration: none;
     font-weight: 500;
     border-radius: 4px;
+    transition: background-color 0.2s;
 }
 
 .menu-navegacao li a:hover {
@@ -307,45 +308,44 @@ ul li a:hover {
     color: #ffffff;
 }
 
-/* --- ESTILO DAS NOTÍCIAS ALINHADAS LADO A LADO --- */
+/* --- ESTILO DAS NOTÍCIAS EM 3 COLUNAS GORDINHAS --- */
 
-/* Fundo da página de notícias branco */
+/* Força o fundo da página de notícias a ficar branco */
 .pagina-noticias-bg {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* Container que organiza as caixas: aumentamos o tamanho máximo de cada coluna */
+/* Container que organiza as caixas em colunas alinhadas à esquerda e mais largas */
 .noticias-grade-container {
     width: 100%;
     padding: 30px 15px; 
     display: grid;
-    /* Mudou de 380px para minmax(450px, 500px): agora as caixas vão se espalhar mais para a direita */
-    grid-template-columns: repeat(auto-fit, minmax(450px, 500px)); 
-    gap: 40px; /* Aumentou o espaço de separação entre as duas caixas */
-    justify-content: flex-start; /* Mantém elas começando a partir da esquerda */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 500px)); /* Caixas gordinhas de até 500px */
+    gap: 40px; /* Espaço maior entre as notícias */
+    justify-content: flex-start; /* Alinha os blocos começando da esquerda */
 }
 
 /* Configuração de cada quadrado de notícia */
 .noticia-container {
     width: 100%;
-    max-width: 500px; /* Aumentou a largura máxima de cada quadrado para o texto esticar */
+    max-width: 500px;
     background-color: #f8f9fa; 
     border: 1px solid #dee2e6; 
     border-radius: 10px;
-    padding: 25px; /* Aumentou o espaço interno para ficar mais elegante */
+    padding: 25px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-
-/* Ajuste das imagens das notícias */
+/* Ajuste perfeito das imagens embaixo do subtítulo */
 .noticia-imagem-corpo {
     width: 100%;
     height: auto;
-    object-fit: contain; 
+    max-height: 280px; /* Evita que a foto fique gigante na tela */
+    object-fit: contain; /* Mostra a foto inteira sem cortar o rosto */
     border-radius: 6px;
-    margin-top: 10px;
-    margin-bottom: 20px; 
+    margin-top: 10px; /* Dá espaço depois do subtítulo */
+    margin-bottom: 20px; /* Dá espaço antes do texto começar */
 }
 
 /* Títulos das notícias */
@@ -360,7 +360,7 @@ ul li a:hover {
     text-shadow: none;
 }
 
-/* Subtítulos das notícias */
+/* Subtítulos das notícias (linha fina) */
 .noticia-subtitulo {
     font-size: 14px;
     color: #6c757d; 
@@ -370,7 +370,7 @@ ul li a:hover {
     font-style: normal;
 }
 
-/* Textos do corpo */
+/* Textos do corpo alinhados no cantinho esquerdo */
 .noticia-conteudo p {
     font-size: 15px;
     line-height: 1.6;
@@ -378,3 +378,11 @@ ul li a:hover {
     color: #495057; 
     text-align: left; 
 }
+
+/* Ajuste para telas menores ou celular */
+@media (max-width: 520px) {
+    .noticias-grade-container {
+        grid-template-columns: 1fr;
+    }
+}
+
