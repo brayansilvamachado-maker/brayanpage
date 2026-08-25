@@ -337,11 +337,12 @@ ul li a:hover {
 /* Configuração para a foto do Mbappé se adaptar ao quadrado */
 .noticia-imagem-corpo {
     width: 100%;
-    height: 200px;
-    object-fit: cover; /* Faz a foto cortar certinho sem amassar */
+    height: auto; /* Mudou de 200px para auto: a foto vai mostrar a altura inteira */
+    object-fit: contain; /* Mudou de cover para contain: mostra a imagem 100% completa */
     border-radius: 6px;
-    margin-bottom: 15px; /* Dá espaço entre a foto e o título */
+    margin-bottom: 15px; 
 }
+
 
 /* Título na esquerda */
 .noticia-titulo {
