@@ -307,36 +307,45 @@ ul li a:hover {
     color: #ffffff;
 }
 
-/* --- ESTILO DA NOTÍCIA JOGADA PARA A ESQUERDA --- */
+/* --- ESTILO DA NOTÍCIA ALINHADA TOTALMENTE À ESQUERDA --- */
 
-/* Fundo da página branco */
+/* Deixa o fundo de trás branco */
 .pagina-noticias-bg {
     background-color: #ffffff !important;
     color: #000000 !important;
 }
 
-/* Deixa o container ocupar a largura da tela e alinha o bloco na esquerda */
+/* Tira as margens centrais e empurra tudo para o início esquerdo */
 .noticia-pagina {
     width: 100%;
-    padding: 40px 30px; /* Dá um espacinho confortável do canto da tela */
+    padding: 30px 15px; 
     display: flex;
-    justify-content: flex-start; /* Empurra a notícia totalmente para a esquerda */
+    justify-content: flex-start; /* Força ir para o cantinho esquerdo */
 }
 
-/* O quadrado em volta da notícia: ajustado para o tamanho de uma coluna da esquerda */
+/* Configuração do quadrado da notícia */
 .noticia-container {
     width: 100%;
-    max-width: 400px; /* Deixa o bloco com tamanho de coluna, abrindo espaço para as outras depois */
+    max-width: 380px; /* Tamanho perfeito de uma coluna no canto */
     background-color: #f8f9fa; 
     border: 1px solid #dee2e6; 
     border-radius: 10px;
-    padding: 25px;
+    padding: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Título alinhado no cantinho */
+/* Configuração para a foto do Mbappé se adaptar ao quadrado */
+.noticia-imagem-corpo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Faz a foto cortar certinho sem amassar */
+    border-radius: 6px;
+    margin-bottom: 15px; /* Dá espaço entre a foto e o título */
+}
+
+/* Título na esquerda */
 .noticia-titulo {
-    font-size: 24px;
+    font-size: 22px;
     color: #212529; 
     font-family: Arial, sans-serif;
     margin-bottom: 12px;
@@ -346,13 +355,13 @@ ul li a:hover {
     text-shadow: none;
 }
 
-/* Subtítulo alinhado no cantinho */
+/* Subtítulo na esquerda */
 .noticia-subtitulo {
     font-size: 14px;
     color: #6c757d; 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     border-bottom: 1px solid #dee2e6; 
-    padding-bottom: 14px;
+    padding-bottom: 12px;
     font-style: normal;
 }
 
