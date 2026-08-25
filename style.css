@@ -315,25 +315,28 @@ ul li a:hover {
     color: #000000 !important;
 }
 
-/* Container que organiza as caixas em colunas alinhadas à esquerda */
+/* Container que organiza as caixas: aumentamos o tamanho máximo de cada coluna */
 .noticias-grade-container {
     width: 100%;
     padding: 30px 15px; 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 380px)); /* Cria colunas automáticas de até 380px */
-    gap: 30px; /* Espaço entre a notícia do Mbappé e a da Espanha */
-    justify-content: flex-start; /* Alinha os blocos a partir da esquerda */
+    /* Mudou de 380px para minmax(450px, 500px): agora as caixas vão se espalhar mais para a direita */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 500px)); 
+    gap: 40px; /* Aumentou o espaço de separação entre as duas caixas */
+    justify-content: flex-start; /* Mantém elas começando a partir da esquerda */
 }
 
 /* Configuração de cada quadrado de notícia */
 .noticia-container {
     width: 100%;
+    max-width: 500px; /* Aumentou a largura máxima de cada quadrado para o texto esticar */
     background-color: #f8f9fa; 
     border: 1px solid #dee2e6; 
     border-radius: 10px;
-    padding: 20px;
+    padding: 25px; /* Aumentou o espaço interno para ficar mais elegante */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
 }
+
 
 /* Ajuste das imagens das notícias */
 .noticia-imagem-corpo {
