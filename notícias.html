@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brayan Page</title>
+    <title>Notícias - Brayan Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <!-- MENU E TOPO DO SITE -->
+
+    <!-- BARRA DO TOPO (IGUAL AO INDEX, MAS APONTANDO PARA AS PÁGINAS CORRETAS) -->
     <header class="cabecalho-itens">
         <img class="cabecalho_imagem" src="Fifa.jpeg" alt="Logo da Página">
         
-        <nav>
-            <ul>
-                <li><a href="#menu">menu</a></li>
-                <li><a href="#noticia-copa">notícias</a></li>
-                <li><a href="#contact">Contato</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
+        <ul class="menu-navegacao">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="noticias.html">Notícias</a></li>
+            <li><a href="#contact">Contato</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
 
-        <h2 class="titulo_site">Página de Brayan Vinicius</h2>
+        <h2 class="titulo_site">Página de Notícias</h2>
         
         <div class="sociais">
             <a href="https://alura.com.br" target="_blank">
@@ -30,69 +28,29 @@
         </div>
     </header>
 
-    <!-- SEÇÃO DAS SELEÇÕES -->
-    <section class="estudante">
-        <h1 class="estudante_titulo">Seleções em destaque 2026</h1>
-
-        <div class="trio-banner">
-            <img class="trio-imagem" src="trio monstro.jpeg" alt="Banner da Escola">
-        </div>
-
-        <!-- VIDEO DO YOUTUBE -->
-        <div class="container-video">
-            <h3 class="titulo-video">Espanha é campeã do mundo</h3>
-            <p>SEU IFRAME AQUI</p> 
-        </div>
-
-        <!-- CARDS DOS PAÍSES -->
-        <div class="estudantes_todos">  
-            <div class="estudante-div">
-                <img class="estudante-imagem" src="Brasil.jpeg" alt="Brasil">
-                <h3 class="estudante-nome">Brasil</h3>
-                <a class="instagram-link" href="https://alura.com.br" target="_blank">
-                    <img class="estudante-icone" src="instagram.svg" alt="Link do Instagram">
-                </a>
-            </div>
-
-            <div class="estudante-div">
-                <img class="estudante-imagem" src="frança.webp" alt="França">
-                <h3 class="estudante-nome">França</h3>
-                <a class="instagram-link" href="https://alura.com.br" target="_blank">
-                    <img class="estudante-icone" src="instagram.svg" alt="Link do Instagram">
-                </a>
-            </div>
-
-            <div class="estudante-div">
-                <img class="estudante-imagem" src="Argentina.jpg" alt="Argentina">
-                <h3 class="estudante-nome">Argentina</h3>
-                <a class="instagram-link" href="https://alura.com.br" target="_blank">
-                    <img class="estudante-icone" src="instagram.svg" alt="Link do Instagram">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO DA NOTÍCIA DO MBAPPÉ (AQUI QUE O MENU VAI PULAR) -->
-    <article id="noticia-copa" class="noticia-container">
-        <h1 class="noticia-titulo">
-            Mbappé ultrapassa Messi no topo do ranking histórico da artilharia da Copa
-        </h1>
-        
-        <p class="noticia-subtitulo">
-            Atacante da França marca o 22º gol em Mundiais, o 10º na Copa do Mundo de 2026.
-        </p>
-
-        <div class="noticia-conteudo">
-            <p>
-                Mbappé ultrapassou Lionel Messi e agora é o maior artilheiro da história da Copa do Mundo. 
-                O camisa 10 da França fez dois gols diante da Inglaterra, na disputa pelo terceiro lugar, 
-                e chegou a 22 gols em Mundiais - um a mais que o craque argentino.
+    <!-- CONTEÚDO PRINCIPAL DA NOTÍCIA -->
+    <main>
+        <article class="noticia-container">
+            <h1 class="noticia-titulo">
+                Mbappé ultrapassa Messi no topo do ranking histórico da artilharia da Copa
+            </h1>
+            
+            <p class="noticia-subtitulo">
+                Atacante da França marca o 22º gol em Mundiais, o 10º na Copa do Mundo de 2026.
             </p>
-            <p>
-                Com os gols deste sábado, Mbappé assumiu o posto de artilheiro isolado desta edição, com 10.
-            </p>
-        </div>
-    </article>
+
+            <div class="noticia-conteudo">
+                <p>
+                    Mbappé ultrapassou Lionel Messi e agora é o maior artilheiro da história da Copa do Mundo. 
+                    O camisa 10 da França fez dois gols diante da Inglaterra, na disputa pelo terceiro lugar, 
+                    e chegou a 22 gols em Mundiais - um a mais que o craque argentino.
+                </p>
+                <p>
+                    Com os gols deste sábado, Mbappé assumiu o posto de artilheiro isolado desta edição, com 10.
+                </p>
+            </div>
+        </article>
+    </main>
 
 </body>
 </html>
