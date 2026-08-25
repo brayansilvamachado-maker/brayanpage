@@ -282,8 +282,7 @@ ul li a:hover {
 }
 
 
-
-/* MENU DE NAVEGAÇÃO */
+/* --- CORREÇÃO DO MENU E ESTILO DA NOTÍCIA --- */
 .menu-navegacao {
     display: flex;
     list-style-type: none;
@@ -308,11 +307,14 @@ ul li a:hover {
     color: #ffffff;
 }
 
-/* CAIXA DA NOTÍCIA */
+.noticia-pagina {
+    padding: 40px 20px;
+}
+
 .noticia-container {
     max-width: 800px;
-    margin: 60px auto;
-    padding: 20px;
+    margin: 0 auto;
+    padding: 25px;
     background-color: #2b2e33;
     border: 1px solid #34383f;
     border-radius: 10px;
@@ -325,6 +327,7 @@ ul li a:hover {
     font-family: Georgia, "Times New Roman", serif;
     margin-bottom: 12px;
     line-height: 1.3;
+    text-align: left;
 }
 
 .noticia-subtitulo {
@@ -336,9 +339,20 @@ ul li a:hover {
     font-style: italic;
 }
 
+.noticia-imagem-corpo {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 6px;
+}
+
 .noticia-conteudo p {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 16px;
     color: #ffffff;
+    text-align: justify;
 }
+
