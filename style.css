@@ -426,14 +426,16 @@ ul li a:hover {
     text-align: left; /* Garante toda a escrita na esquerda */
 }
 
-/* Foto do jogador */
+/* Foto do jogador ajustada para não cortar a cabeça */
 .jogador-foto {
     width: 100%;
     height: 250px;
-    object-fit: cover; /* Corta a imagem certinho sem amassar o rosto */
+    object-fit: contain; /* Mudamos para contain para a foto caber inteira sem cortes */
+    background-color: #ffffff; /* Garante que o fundo da foto combine com o cartão */
     border-radius: 6px;
     margin-bottom: 15px;
 }
+
 
 /* Nome do craque */
 .jogador-nome {
