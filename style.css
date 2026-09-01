@@ -213,7 +213,8 @@ a {
     text-decoration: none;
 }
 
-/* --- ESTILO DO CONTAINER DE VÍDEO --- */
+
+
 .container-video {
     max-width: 800px;
     margin: 40px auto;
@@ -238,7 +239,8 @@ a {
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.5);
 }
 
-/* --- ESTILO DO MENU --- */
+
+
 .menu-navegacao {
     display: flex;
     list-style-type: none;
@@ -264,7 +266,8 @@ a {
     color: #ffffff;
 }
 
-/* --- ESTILO DAS NOTÍCIAS --- */
+
+
 .pagina-noticias-bg {
     background-color: #ffffff !important;
     color: #000000 !important;
@@ -327,7 +330,8 @@ a {
     text-align: left; 
 }
 
-/* --- ESTILO DA PÁGINA DE JOGADORES --- */
+
+
 .pagina-jogadores-bg {
     background-color: #ffffff !important;
     color: #000000 !important;
@@ -393,7 +397,8 @@ a {
     color: #495057;
 }
 
-/* --- ADAPTATIVIDADE / MEDIAS --- */
+
+
 @media (max-width: 900px) {
     .estudantes_todos {
         grid-template-columns: repeat(3, 1fr);
