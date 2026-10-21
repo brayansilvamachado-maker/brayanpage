@@ -267,42 +267,79 @@ function draw(){
     $('tm').textContent=m+':'+(s<10?'0':'')+s;
 }
 
-let lastT=performance.now();
-function loop(t){
-    let dt=(t-lastT)/1000;lastT=t;if(dt>.1)dt=.1;
-    if(state==='play'){
-        time-=dt;if(time<=0){time=0;endGame()}
+/* ===== ADICIONE ESTE BLOCO NO FINAL DO ARQUIVO, LOGO ABAIXO DA FUNÇÃO DRAW() ===== */
+
+let lastT = performance.now();
+function loop(t) {
+    let dt = (t - lastT) / 1000; lastT = t; if (dt > .1) dt = .1;
+    if (state === 'play') {
+        time -= dt; if (time <= 0) { time = 0; endGame() }
         step(dt);
-    }else if(state==='goal'){
-        step(dt*0.2);gt-=dt;if(gt<=0){gl.hidden=true;state='play';reset(pk)}
+    } else if (state === 'goal') {
+        step(dt * 0.2); gt -= dt; if (gt <= 0) { gl.hidden = true; state = 'play'; reset(pk) }
     }
-    draw();requestAnimationFrame(loop);
+    draw(); requestAnimationFrame(loop);
 }
 
-window.addEventListener('keydown',e=>{keys[e.code]=true;if(e.code==='Space')act.pass=true;if(e.code==='Escape')state='menu';});
-window.addEventListener('keyup',e=>{keys[e.code]=false;});
-cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=(e.clientX-r.left)*(W/r.width);mouse.y=(e.clientY-r.top)*(H/r.height);});
-cv.addEventListener('mousedown',e=>{if(e.button===0)act.shot=true;});
+// Configuração dos Controles (Teclado e Mouse)
+window.addEventListener('keydown', e => { keys[e.code] = true; if (e.code === 'Space') act.pass = true; if (e.code === 'Escape') state = 'menu'; });
+window.addEventListener('keyup', e => { keys[e.code] = false; });
+cv.addEventListener('mousemove', e => { const r = cv.getBoundingClientRect(); mouse.x = (e.clientX - r.left) * (W / r.width); mouse.y = (e.clientY - r.top) * (H / r.height); });
+cv.addEventListener('mousedown', e => { if (e.button === 0) act.shot = true; });
 
-/* ===== ADICIONE OU SUBSTITUA APENAS ESTE TRECHO NO FINAL DO SEU SCRIPT.JS ===== */
+// Função Única Corrigida para os Botões Funcionarem ao Clicar
+function inicializarJogo() {
+    // Botão de Tela Cheia
+    const fsBtn = document.getElementById('fs-btn');
+    if (fsBtn) {
+        fsBtn.onclick = () => {
+            const elem = document.getElementById('wrap') || document.documentElement;
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) elem.requestFullscreen();
+                else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+            }
+        };
+    }
 
-// Configuração corrigida dos botões de dificuldade para o jogo começar ao clicar
-menu.querySelectorAll('button').forEach(b => {
-    b.addEventListener('click', () => {
-        const nivelSelecionado = b.getAttribute('data-l'); // Pega o modo (facil, medio, dificil)
-        if (LV[nivelSelecionado]) {
-            AP = LV[nivelSelecionado];
-            $('lv').textContent = AP.n; // Atualiza o texto no HUD
-            score =;             // Zera o placar com os colchetes certos
-            time = 120;                 // Define os 2 minutos de jogo
-            build();                    // Monta os times em campo
-            reset(0);                   // Posiciona a bola no meio
-            menu.hidden = true;         // Esconde o menu inicial
-            state = 'play';             // Muda o estado para jogando
-            cv.focus();                 // Dá foco no campo para os comandos funcionarem
-        }
+    // Botões do Menu (Fácil, Médio, Difícil)
+    const botoesMenu = document.querySelectorAll('button[data-l]');
+    botoesMenu.forEach(btn => {
+        btn.onclick = () => {
+            const nivel = btn.getAttribute('data-l');
+            
+            if (typeof LV !== 'undefined' && LV[nivel]) {
+                AP = LV[nivel];
+                const labelDificuldade = document.getElementById('lv');
+                if (labelDificuldade) labelDificuldade.textContent = AP.n;
+            }
+            
+            score =; // Reinicia o placar com os colchetes certos
+            time = 120;
+            state = 'play';
+            
+            build();
+            reset(0);
+
+            // Esconde a interface do menu
+            const menuInicial = document.getElementById('menu');
+            if (menuInicial) {
+                menuInicial.hidden = true;
+                menuInicial.style.display = 'none';
+            }
+
+            if (cv) cv.focus();
+        };
     });
-});
 
-$('fs-btn').addEventListener('click',()=>{if(cv.requestFullscreen){cv.requestFullscreen()}else if(cv.webkitRequestFullscreen){cv.webkitRequestFullscreen()}});
-build();requestAnimationFrame(loop);
+    build();
+    requestAnimationFrame(loop);
+}
+
+// Executa a inicialização de forma segura
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inicializarJogo);
+} else {
+    inicializarJogo();
+}
