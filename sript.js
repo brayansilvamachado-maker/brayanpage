@@ -32,29 +32,29 @@ function carrier(p,A,d,opp){
  let dx=gx-p.x,dy=CY-p.y;const l=Math.hypot(dx,dy)||1;dx=dx/l+ax*.05;dy=dy/l+ay*.05;
  p.th-=DT;
  if(p.th<=0){p.th=A.react*(.6+Math.random()*.8);
-  const kp=T[1-p.team][0],ty=kp.y<CY?CY+GH/2-5:CY-GH/2+5;
-  if(dg<100&&clear(p,{x:gx,y:ty},fo,5)){kick(p,gx,ty,250,A.err);return}
-  const press=opp.some(o=>dist(o,p)<22);let best=null,bs=0;
-  for(const t of T[p.team]){if(t===p||t.role==='gk')continue;const td=dist(t,p);
-   if(td<28||td>140||!clear(p,t,opp,6))continue;
-   const open=Math.min(...opp.map(o=>dist(o,t))),s=(t.x-p.x)*d+open*.8;
-   if(open>14&&s>bs){bs=s;best=t}}
-  if(best&&((press&&Math.random()<A.pass+.2)||(bs>45&&Math.random()<A.pass*.6))){doPass(p,best,A.err*.5);return}}
+ const kp=T[1-p.team][0],ty=kp.y<CY?CY+GH/2-5:CY-GH/2+5;
+ if(dg<100&&clear(p,{x:gx,y:ty},fo,5)){kick(p,gx,ty,250,A.err);return}
+ const press=opp.some(o=>dist(o,p)<22);let best=null,bs=0;
+ for(const t of T[p.team]){if(t===p||t.role==='gk')continue;const td=dist(t,p);
+ if(td<28||td>140||!clear(p,t,opp,6))continue;
+ const open=Math.min(...opp.map(o=>dist(o,t))),s=(t.x-p.x)*d+open*.8;
+ if(open>14&&s>bs){bs=s;best=t}}
+ if(best&&((press&&Math.random()<A.pass+.2)||(bs>45&&Math.random()<A.pass*.6))){doPass(p,best,A.err*.5);return}}
  move(p,p.x+dx*40,p.y+dy*40,SP*A.spd*.93)}
 function support(p,A,d,opp){
  const o=ball.owner,h=home(p);
  if(p.role==='d'||A.lane<.3){move(p,h.x,h.y,SP*A.spd*.9);return}
  p.th-=DT;
  if(p.th<=0){p.th=.45;let bs=-9e9;
-  for(let k=0;k<7;k++){const c={x:cl(o.x+d*(14+Math.random()*50),PX+6,PR-6),y:PY+8+Math.random()*(PH-16)};
-   const op=Math.min(...opp.map(q=>dist(q,c))),
-   s=Math.min(op,40)+(clear(o,c,opp,6)?25:0)+(c.x-o.x)*d*.3-dist(c,p)*.15-(T[p.team].some(m=>m!==p&&dist(m,c)<24)?30:0);
-   if(s>bs){bs=s;p.tx=c.x;p.ty=c.y}}}
+ for(let k=0;k<7;k++){const c={x:cl(o.x+d*(14+Math.random()*50),PX+6,PR-6),y:PY+8+Math.random()*(PH-16)};
+ const op=Math.min(...opp.map(q=>dist(q,c))),
+ s=Math.min(op,40)+(clear(o,c,opp,6)?25:0)+(c.x-o.x)*d*.3-dist(c,p)*.15-(T[p.team].some(m=>m!==p&&dist(m,c)<24)?30:0);
+ if(s>bs){bs=s;p.tx=c.x;p.ty=c.y}}}
  move(p,p.tx,p.ty,SP*A.spd*.95)}
 function defend(p,A,d,opp){
  const c=ball.owner,og={x:d>0?PX:PR,y:CY},mine=T[p.team].filter(q=>q.role!=='gk'&&q!==ctrl).sort((a,b)=>dist(a,c)-dist(b,c)),r=mine.indexOf(p);
  if(r>=0&&r<A.press){const l=Math.hypot(og.x-c.x,og.y-c.y)||1,k=A.pred?7:0;
-  move(p,c.x+c.vx*.2*A.pred+(og.x-c.x)/l*k,c.y+c.vy*.2*A.pred+(og.y-c.y)/l*k,SP*A.spd*(r?.95:1.03));return}
+ move(p,c.x+c.vx*.2*A.pred+(og.x-c.x)/l*k,c.y+c.vy*.2*A.pred+(og.y-c.y)/l*k,SP*A.spd*(r?.95:1.03));return}
  const h=home(p);
  if(A.lane<.3){move(p,h.x,h.y,SP*A.spd*.9);return}
  const ops=opp.filter(o=>o!==c&&o.role!=='gk'),m=ops[p.i%ops.length],ll=Math.hypot(og.x-m.x,og.y-m.y)||1,
@@ -65,17 +65,17 @@ function loose(p,A){
  let ch=tm.reduce((a,q)=>dist(q,b)<dist(a,b)?q:a);
  if(b.tgt&&b.tgt.team===p.team&&b.tgt!==ctrl)ch=b.tgt;
  if(p===ch){const t=dist(p,b)/(SP*A.spd),f=(1-Math.exp(-K*t))/K;
-  move(p,cl(b.x+b.vx*f*A.pred,PX,PR),cl(b.y+b.vy*f*A.pred,PY,PB),SP*A.spd*1.02);return}
+ move(p,cl(b.x+b.vx*f*A.pred,PX,PR),cl(b.y+b.vy*f*A.pred,PY,PB),SP*A.spd*1.02);return}
  const h=home(p);move(p,h.x,h.y,SP*A.spd*.9)}
 function keeper(p,A,d){
  const b=ball,hx=(d>0?PX:PR)+d*7;
  if(b.owner===p){p.hold+=DT;
-  if(p.hold>.8){const t=T[p.team].filter(q=>q.role!=='gk'&&clear(p,q,T[1-p.team],6)).sort((a,c)=>Math.abs(a.y-p.y)-Math.abs(c.y-p.y))[0]||T[p.team][1];doPass(p,t,.05)}
-  move(p,hx,p.y,0);return}
+ if(p.hold>.8){const t=T[p.team].filter(q=>q.role!=='gk'&&clear(p,q,T[1-p.team],6)).sort((a,c)=>Math.abs(a.y-p.y)-Math.abs(c.y-p.y))[0]||T[p.team][1];doPass(p,t,.05)}
+ move(p,hx,p.y,0);return}
  p.th-=DT;
  if(p.th<=0){p.th=A.react*.5;let y=CY+(b.y-CY)*.35;
-  if(b.vx*d<-40){const t=(hx-b.x)/b.vx;if(t>0)y=b.y+b.vy*t}
-  p.ty=cl(y+(Math.random()-.5)*(1-A.gk)*30,CY-GH/2+2,CY+GH/2-2)}
+ if(b.vx*d<-40){const t=(hx-b.x)/b.vx;if(t>0)y=b.y+b.vy*t}
+ p.ty=cl(y+(Math.random()-.5)*(1-A.gk)*30,CY-GH/2+2,CY+GH/2-2)}
  let tx=hx,ty=p.ty||CY;
  if(!b.owner&&A.gk>.5&&Math.abs(b.x-hx)<30&&Math.abs(b.y-CY)<GH&&Math.hypot(b.vx,b.vy)<70){tx=b.x;ty=b.y}
  move(p,tx,ty,SP*A.spd)}
@@ -83,5 +83,163 @@ function keeper(p,A,d){
 /* ===== jogo ===== */
 function bestT(p){const a=Math.atan2(mouse.y-p.y,mouse.x-p.x);let r=null,bs=9;
  for(const t of T[0]){if(t===p||t.role==='gk')continue;const d=dist(t,p);if(d<12)continue;
-  const ta=Math.atan2(t.y-p.y,t.x-p.x)-a,da=Math.abs(Math.atan2(Math.sin(ta),Math.cos(ta))),s=da+d*.0015;
-  if(d
+ const ta=Math.atan2(t.y-p.y,t.x-p.x)-a,da=Math.abs(Math.atan2(Math.sin(ta),Math.cos(ta))),s=da+d*.0015;
+ if(da<.45&&s<bs){bs=s;r=t}}return r}
+function userPass(p){const t=bestT(p);if(t){doPass(p,t,0);ctrl=t}else kick(p,mouse.x,mouse.y,150,0)}
+function goal(t){score[t]++;state='goal';gt=1.8;pk=1-t;gl.textContent=t?'GOL DO ROBÔ!':'GOOOL!';gl.hidden=false;gl.style.animation='none';gl.offsetWidth;gl.style.animation=''}
+function endGame(){state='end';$('mt').textContent=score[0]>score[1]?'VOCÊ VENCEU!':score[0]<score[1]?'O ROBÔ VENCEU':'EMPATE';
+ $('mm').textContent=score[0]+' x '+score[1]+' — escolha o nível para jogar de novo';menu.hidden=false}
+function step(dt){
+ DT=dt;const b=ball,o=b.owner;
+ if(o&&o.team===0&&o.role!=='gk')ctrl=o;
+ else if(!o&&b.tgt&&b.tgt.team===0)ctrl=b.tgt;
+ else{const fs=T[0].filter(q=>q.role!=='gk'),n=fs.reduce((a,q)=>dist(q,b)<dist(a,b)?q:a);if(!ctrl||dist(ctrl,b)>dist(n,b)+10)ctrl=n}
+ if(act.pass){act.pass=false;if(b.owner===ctrl)userPass(ctrl);else if(ctrl.dc<=0){ctrl.bo=.3;ctrl.dc=1.1}}
+ if(act.shot){act.shot=false;if(b.owner===ctrl)kick(ctrl,mouse.x,mouse.y,265,0)}
+ for(const p of all){p.cd-=dt;p.tk-=dt;p.bo-=dt;p.dc-=dt;const d=p.team?-1:1;
+ if(p===ctrl){const x=(keys.KeyD||keys.ArrowRight?1:0)-(keys.KeyA||keys.ArrowLeft?1:0),y=(keys.KeyS||keys.ArrowDown?1:0)-(keys.KeyW||keys.ArrowUp?1:0),l=Math.hypot(x,y),
+ s=SP*(p.bo>0?1.9:1)*(b.owner===p?.94:1);p.dvx=l?x/l*s:0;p.dvy=l?y/l*s:0}
+ else{const A=prm(p),ow=b.owner;
+ if(p.role==='gk')keeper(p,A,d);else if(ow===p)carrier(p,A,d,T[1-p.team]);
+ else if(ow&&ow.team===p.team)support(p,A,d,T[1-p.team]);
+ else if(ow)defend(p,A,d,T[1-p.team]);else loose(p,A)}}
+ for(const p of all){p.vx+=(p.dvx-p.vx)*Math.min(1,dt*9);p.vy+=(p.dvy-p.vy)*Math.min(1,dt*9);
+ p.x=cl(p.x+p.vx*dt,PX+3,PR-3);p.y=cl(p.y+p.vy*dt,PY+4,PB-1);
+ const s=Math.hypot(p.vx,p.vy);if(s>8){p.fx=p.vx/s;p.fy=p.vy/s;p.an+=dt*s*.2}}
+ for(let i=0;i<all.length;i++)for(let j=i+1;j<all.length;j++){const a=all[i],c=all[j],dx=c.x-a.x,dy=c.y-a.y,l=Math.hypot(dx,dy);
+ if(l<6&&l>0){const u=(6-l)/2/l;a.x-=dx*u;a.y-=dy*u;c.x+=dx*u;c.y+=dy*u}}
+ if(b.owner){const w=b.owner;b.x=w.x+w.fx*5;b.y=w.y+w.fy*5;b.vx=w.vx;b.vy=w.vy;
+ for(const q of T[1-w.team]){if(q.tk>0||q.cd>0||q.role==='gk')continue;
+ if(Math.hypot(q.x-b.x,q.y-b.y)<7){q.tk=.7;const c=q.team===1?AP.tk:(q===ctrl?(q.bo>0?.75:.5):.3);
+ if(Math.random()<c){w.cd=.6;take(q);break}}}
+ }else{
+ b.x+=b.vx*dt;b.y+=b.vy*dt;const f=Math.exp(-K*dt);b.vx*=f;b.vy*=f;
+ if(b.y<PY+1){b.y=PY+1;b.vy=Math.abs(b.vy)}if(b.y>PB){b.y=PB;b.vy=-Math.abs(b.vy)}
+ const ing=Math.abs(b.y-CY)<GH/2;
+ if(ing){if(b.x<PX-3){goal(1);return}if(b.x>PR+3){goal(0);return}}
+ else{if(b.x<PX){b.x=PX;b.vx=Math.abs(b.vx)}if(b.x>PR){b.x=PR;b.vx=-Math.abs(b.vx)}}
+ const sp=Math.hypot(b.vx,b.vy);let bp=null,bd=99;
+ for(const p of all){if(p.cd>0)continue;const r=p.role==='gk'?7:5.5,d=Math.hypot(p.x-b.x,p.y-b.y);if(d<r&&d<bd){bd=d;bp=p}}
+ if(bp){
+ if(sp<200)take(bp);
+ else if(bp.role==='gk'){if(Math.random()<.35+.5*prm(bp).gk)take(bp);else{b.vx*=-.5;b.vy+=(Math.random()-.5)*120;bp.cd=.4}}
+ else if(b.last&&bp.team!==b.last.team){b.vx*=-.4;b.vy*=.6;bp.cd=.3}}
+ }
+ time-=dt;if(time<=0){time=0;endGame()}}
+
+/* ===== desenho ===== */
+const pitch=document.createElement('canvas');pitch.width=W;pitch.height=H;
+(function(){const c=pitch.getContext('2d'),CX=(PX+PR)/2;c.fillStyle='#2b5f31';c.fillRect(0,0,W,H);
+ for(let i=0;i<8;i++){c.fillStyle=i%2?'#3f9444':'#459c4a';c.fillRect(PX+i*PW/8,PY,PW/8,PH)}
+ c.fillStyle='#eaf4e0';c.fillRect(PX,PY,PW,1);c.fillRect(PX,PB-1,PW,1);c.fillRect(PX,PY,1,PH);c.fillRect(PR-1,PY,1,PH);c.fillRect(CX,PY,1,PH);
+ for(let a=0;a<6.3;a+=.03)c.fillRect(Math.round(CX+Math.cos(a)*22),Math.round(CY+Math.sin(a)*22),1,1);
+ c.fillRect(CX-1,CY-1,3,3);
+ c.fillRect(PX,CY-40,36,1);c.fillRect(PX,CY+40,36,1);c.fillRect(PX+36,CY-40,1,81);
+ c.fillRect(PR-36,CY-40,36,1);c.fillRect(PR-36,CY+40,36,1);c.fillRect(PR-37,CY-40,1,81);
+ [PX-9,PR].forEach(x0=>{c.fillStyle='#1d2b1f';c.fillRect(x0,CY-GH/2,9,GH);c.fillStyle='#9fb09f';
+ for(let x=0;x<9;x++)for(let y=0;y<GH;y++)if((x+y)%3===0)c.fillRect(x0+x,CY-GH/2+y,1,1);
+ c.fillStyle='#fff';c.fillRect(x0,CY-GH/2-1,9,2);c.fillRect(x0,CY+GH/2-1,9,2);c.fillRect(x0===PX-9?x0:x0+8,CY-GH/2,1,GH)});
+})();
+function dp(p){const x=Math.round(p.x)-3,y=Math.round(p.y)-8,c=p.team?'#d9382e':'#2f6fe0',
+ sh=p.role==='gk'?(p.team?'#f2a900':'#2fbf71'):c,m=Math.hypot(p.vx,p.vy)>8,f=m&&Math.floor(p.an)%2?1:0;
+ g.fillStyle='rgba(0,0,0,.28)';g.fillRect(x,y+10,7,2);
+ g.fillStyle='#f1c9a0';g.fillRect(x+f,y+9,2,2);g.fillRect(x+4-f,y+9,2,2);
+ g.fillStyle='#f4f4f4';g.fillRect(x+1,y+7,5,2);
+ g.fillStyle=sh;g.fillRect(x+1,y+3,5,4);g.fillRect(x,y+4,1,3);g.fillRect(x+6,y+4,1,3);
+ g.fillStyle='#f1c9a0';g.fillRect(x+2,y,3,3);g.fillStyle='#3a2a1a';g.fillRect(x+2,y,3,1);
+ if(p===ctrl&&state==='play'){g.fillStyle='#ffe14a';g.fillRect(x+1,y-5,5,1);g.fillRect(x+2,y-4,3,1);g.fillRect(x+3,y-3,1,1)}}
+function ring(p){const x=Math.round(p.x)-6,y=Math.round(p.y)-7;g.fillStyle='#fff';
+ g.fillRect(x,y,3,1);g.fillRect(x+9,y,3,1);g.fillRect(x,y+14,3,1);g.fillRect(x+9,y+14,3,1);
+ g.fillRect(x,y,1,3);g.fillRect(x+11,y,1,3);g.fillRect(x,y+12,1,3);g.fillRect(x+11,y+12,1,3)}
+function draw(){
+ g.drawImage(pitch,0,0);
+ all.slice().sort((a,b)=>a.y-b.y).forEach(dp);
+ const bx=Math.round(ball.x),by=Math.round(ball.y);
+ g.fillStyle='rgba(0,0,0,.3)';g.fillRect(bx-1,by+1,4,2);g.fillStyle='#fff';g.fillRect(bx-1,by-2,3,3);g.fillStyle='#222';g.fillRect(bx,by-1,1,1);
+ if(state==='play'&&ctrl){
+ if(ball.owner===ctrl){const t=bestT(ctrl);if(t)ring(t);
+ const dx=mouse.x-ctrl.x,dy=mouse.y-ctrl.y,l=Math.hypot(dx,dy);g.fillStyle='rgba(255,255,255,.7)';
+ for(let k=10;k<l&&k<90;k+=5)g.fillRect(Math.round(ctrl.x+dx/l*k),Math.round(ctrl.y+dy/l*k),1,1)}
+ const mx=Math.round(mouse.x),my=Math.round(mouse.y);g.fillStyle='#ffe14a';
+ g.fillRect(mx-4,my,3,1);g.fillRect(mx+2,my,3,1);g.fillRect(mx,my-4,1,3);g.fillRect(mx,my+2,1,3)}
+}
+function hud(){$('sc').textContent=score[0]+' x '+score[1];const t=Math.ceil(time);$('tm').textContent=Math.floor(t/60)+':'+String(t%60).padStart(2,'0');$('lv').textContent=AP.n}
+function start(k){AP=LV[k];build();score=[0,0];time=120;reset(0);state='play';menu.hidden=true;gl.hidden=true;window.focus();cv.focus()}
+function openMenu(){state='menu';$('mt').textContent='PAUSA';$('mm').textContent='Escolha o nível para (re)começar';menu.hidden=false}
+
+addEventListener('keydown',e=>{
+ if(['Space','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code))e.preventDefault();
+ if(e.repeat)return;keys[e.code]=1;
+ if(e.code==='Space'&&state==='play')act.pass=true;
+ if(e.code==='Escape'&&state==='play')openMenu()});
+addEventListener('keyup',e=>{keys[e.code]=0});
+addEventListener('blur',()=>{for(const k in keys)keys[k]=0});
+cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=(e.clientX-r.left)*W/r.width;mouse.y=(e.clientY-r.top)*H/r.height});
+cv.addEventListener('mousedown',()=>{cv.focus();if(state==='play')act.shot=true});
+document.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>start(b.dataset.l));
+
+build();reset(0);
+let lt=0;
+function loop(t){requestAnimationFrame(loop);const dt=Math.min(.033,(t-lt)/1000||0);lt=t;
+ if(state==='play')step(dt);
+ else if(state==='goal'){gt-=dt;if(gt<=0){gl.hidden=true;reset(pk);state='play'}}
+ draw();hud()}
+requestAnimationFrame(loop);
+
+
+
+
+
+
+// --- CONTROLO DOS BOTÕES E INÍCIO DA PARTIDA ---
+function inicializarJogo() {
+ // Configuração do Botão de Tela Cheia
+ const fsBtn = document.getElementById('fs-btn');
+ if (fsBtn) {
+ fsBtn.onclick = () => {
+ const elem = document.getElementById('wrap') || document.documentElement;
+ if (!document.fullscreenElement) {
+ if (elem.requestFullscreen) elem.requestFullscreen();
+ else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+ } else {
+ if (document.exitFullscreen) document.exitFullscreen();
+ }
+ };
+ }
+
+ // Configuração dos Botões do Menu (Fácil, Médio, Difícil)
+ const botoesMenu = document.querySelectorAll('button[data-l]');
+ botoesMenu.forEach(btn => {
+ btn.onclick = () => {
+ const nivel = btn.getAttribute('data-l');
+ 
+ // Define a dificuldade
+ if (typeof LV !== 'undefined' && LV[nivel]) {
+ AP = LV[nivel];
+ }
+ 
+ // Ativa o estado de jogo
+ if (typeof state !== 'undefined') {
+ state = 'play';
+ }
+
+ // Esconde a interface do menu
+ const menu = document.getElementById('menu');
+ if (menu) {
+ menu.hidden = true;
+ menu.style.display = 'none';
+ }
+
+ // Foca no canvas para capturar os controlos
+ const canvas = document.getElementById('c');
+ if (canvas) canvas.focus();
+ };
+ });
+}
+
+// Executa a inicialização
+if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', inicializarJogo);
+} else {
+ inicializarJogo();
+}
