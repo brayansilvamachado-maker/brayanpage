@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial- scale=1.0">
-
-<title>Brayan Page</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brayan Page - Jogo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="pagina-jogadores-bg">
 
-
- <!-- MENU -->
+    <!-- MENU DO TOPO -->
     <header class="cabecalho-itens">
         <img class="cabecalho_imagem" src="Fifa.jpeg" alt="Logo da Página">
         
-<ul class="menu-navegacao">
-    <li><a href="index.html">Início</a></li>
-    <li><a href="noticias.html">Notícias</a></li>
-    <li><a href="jogadores.html">Jogadores</a></li>
-    <li><a href="jogo.html">Jogo</a></li>
-</ul>
+        <ul class="menu-navegacao">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="noticias.html">Notícias</a></li>
+            <li><a href="jogadores.html">Jogadores</a></li>
+            <li><a href="jogo.html">Jogo</a></li>
+        </ul>
 
-<!--header é a parte do cabeçalho do site, é o topo da página-->
-<header class="cabecalho-itens">
-    <!-- Foto na esquerda -->
-    <div class="cabecalho-bloco-imagem">
-        <img class="cabecalho-imagem" src="Captura de tela de 2026-06-17 11-29-15.png" alt="Foto do Guilherme">
-    </div>
+        <h2 class="titulo_site">Página de Brayan Vinicius</h2>
+    </header>
 
-    <!-- Nome no centro -->
-    <h1 class="titulo-site"></h1>
+    <!-- ÁREA PRINCIPAL DO JOGO -->
+    <main style="padding: 40px 15px; text-align: center; max-width: 1200px; margin: 0 auto;">
+        
+        <h1 class="jogadores-titulo-principal" style="text-align: center; margin-top: 0; margin-bottom: 20px;">
+            Pixel Soccer - Copa 2026
+        </h1>
+        
+        <!-- Botão Tela Cheia -->
+        <button id="fs-btn">TELA CHEIA</button>
 
-    <!-- Link do Instagram na direita -->
-    <div class="sociais">
-        <a href="https://instagram.com/" target="_blank">
-            <img class="instagram-logo" src="instagram.png" alt="Instagram do Guilherme">
-        </a>
-    </div>
-</header>
+        <!-- Container do Jogo -->
+        <div id="wrap">
+            <div id="hud">
+                <span id="sc">0 x 0</span>
+                <span id="tm">2:00</span>
+                <span id="lv">MÉDIO</span>
+            </div>
 
-<!--jogo-->
-<!-- Botão Tela Cheia (sem onclick inline) -->
-<button id="fs-btn">TELA CHEIA</button>
+            <canvas id="c" width="320" height="184" tabindex="0"></canvas>
 
-<!-- Container Principal do Jogo -->
-<div id="wrap">
-  <div id="hud">
-    <span id="sc">0 x 0</span>
-    <span id="tm">2:00</span>
-    <span id="lv">MÉDIO</span>
-  </div>
+            <div id="gl" hidden>GOL!</div>
 
-  <canvas id="c" width="320" height="184" tabindex="0"></canvas>
+            <div id="menu">
+                <h1 id="mt">PIXEL SOCCER</h1>
+                <p id="mm">Escolha o nível do robô e jogue!</p>
+                <div class="row">
+                    <button data-l="facil">FÁCIL</button>
+                    <button data-l="medio">MÉDIO</button>
+                    <button data-l="dificil">DIFÍCIL</button>
+                </div>
+                <p style="margin-top: 10px; font-size: 8px; color: #6c757d; line-height: 1.4;">
+                    WASD / SETAS: mover<br>
+                    MOUSE: mirar | CLIQUE: chutar<br>
+                    ESPAÇO: passar | ESC: menu
+                </p>
+            </div>
+        </div>
+    </main>
 
-  <div id="gl" hidden>GOL!</div>
+    <!-- RODAPÉ DA PÁGINA -->
+    <footer class="escola">
+        <h3 class="escola-título">
+            Acompanhe as novidades diretamente no nosso 
+            <a class="link" href="https://instagram.com" target="_blank">@brayan_vinicius</a>
+        </h3>
+        <p>©2026 | Página Oficial do Brayan | Conectado via Instagram Feed. Todos os Direitos Reservados.</p>
+    </footer>
 
-  <div id="menu">
-    <h1 id="mt">PIXEL SOCCER</h1>
-    <p id="mm">Escolha o nível do robô e jogue!</p>
-    <div class="row">
-      <button data-l="facil">FÁCIL</button>
-      <button data-l="medio">MÉDIO</button>
-      <button data-l="dificil">DIFÍCIL</button>
-    </div>
-    <p>
-      WASD / SETAS: mover<br>
-      MOUSE: mirar<br>
-      ESPAÇO: passar<br>
-      CLIQUE: chutar<br>
-      ESC: menu
-    </p>
-  </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

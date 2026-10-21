@@ -592,3 +592,145 @@ canvas#c {
   color: #ffe14a;
   text-shadow: 4px 4px 0 #b8322a;
 }
+
+/* ==========================================
+   ESTILIZAÇÃO DO JOGO (PIXEL SOCCER)
+   ========================================== */
+
+#fs-btn {
+    display: inline-block;
+    margin: 0 auto 25px auto;
+    padding: 12px 24px;
+    background-color: #f5c542;
+    color: #141619;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#fs-btn:hover {
+    background-color: #d4a728;
+    transform: translateY(-1px);
+}
+
+#wrap {
+    position: relative;
+    width: 320px;
+    height: 184px;
+    margin: 0 auto 140px auto; /* Afasta 140px do rodapé assim como a grade */
+    border: 4px solid #141619;
+    border-radius: 12px;
+    background-color: #22252a;
+    overflow: hidden;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Interface Superior */
+#hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 12px;
+    background: rgba(20, 22, 25, 0.9);
+    font-family: monospace;
+    font-size: 11px;
+    color: #ffffff;
+    z-index: 5;
+    border-bottom: 1px solid #34383f;
+    box-sizing: border-box;
+}
+
+#sc {
+    color: #f5c542;
+    font-weight: bold;
+}
+
+/* Canvas do Campo */
+#c {
+    display: block;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    background-color: #2e7d32; /* Cor verde de gramado caso falte render do JS */
+}
+
+/* Banner de Gol */
+#gl {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 0, 0, 0.95);
+    color: #ffffff;
+    padding: 8px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    z-index: 10;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Pop-up do Menu Interno */
+#menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 22, 25, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    z-index: 8;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+#mt {
+    font-size: 16px;
+    color: #f5c542;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+#mm {
+    font-size: 10px;
+    color: #a0a5b0;
+    margin-bottom: 10px;
+}
+
+#menu .row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+#menu button {
+    padding: 5px 10px;
+    font-size: 10px;
+    background-color: #2b2e33;
+    color: #fff;
+    border: 1px solid #454a52;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+#menu button:hover {
+    background-color: rgb(0, 255, 191);
+    color: #141619;
+    border-color: rgb(0, 255, 191);
+}
