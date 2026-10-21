@@ -454,3 +454,141 @@ a {
 .jogadores-grade-container {
     margin-bottom: 80px; 
 }
+
+
+
+
+/*jogo*/
+
+#fs-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 16px;
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  font-size: 10px;
+  background-color: #ffe14a;
+  color: #1a1a1a;
+  border: 3px solid #1a1a1a;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #a8871a;
+}
+
+#fs-btn:hover {
+  transform: translateY(-2px);
+}
+
+#wrap {
+  position: relative;
+  width: min(96vw, calc((100vh - 120px) * 1.739));
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Press Start 2P', monospace, sans-serif;
+}
+
+#hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fffdf4;
+  border: 4px solid #17261a;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  font-size: 10px;
+  color: #17261a;
+}
+
+#sc {
+  font-size: 14px;
+  color: #2f6fe0;
+}
+
+canvas#c {
+  display: block;
+  width: 100%;
+  image-rendering: pixelated;
+  border: 4px solid #17261a;
+  outline: none;
+  cursor: crosshair;
+  background: #2b5f31;
+}
+
+/*MENU INICIAL E AVISOS*/
+
+#menu, #gl {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+}
+
+#menu {
+  background: rgba(8, 14, 8, 0.92);
+  color: #e6f0dc;
+  padding: 15px;
+}
+
+#menu[hidden], #gl[hidden] {
+  display: none !important;
+}
+
+#menu h1 {
+  font-size: clamp(14px, 3.4vw, 24px);
+  margin: 0;
+  color: #ffe14a;
+  text-shadow: 3px 3px 0 #b8322a;
+}
+
+#menu p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: clamp(7px, 1.5vw, 10px);
+}
+
+/*DIFICULDADE*/
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.row button {
+  font-family: inherit;
+  font-size: clamp(9px, 1.8vw, 12px);
+  padding: 12px 16px;
+  background: #ffe14a;
+  color: #1a1a1a;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #a8871a, 0 0 0 3px #1a1a1a;
+  transition: transform .08s;
+}
+
+.row button:hover {
+  transform: translateY(-2px);
+}
+
+.row button[data-l="medio"] {
+  background: #ff9f43;
+  box-shadow: 0 5px 0 #a8601a, 0 0 0 3px #1a1a1a;
+}
+
+.row button[data-l="dificil"] {
+  background: #ff5d5d;
+  box-shadow: 0 5px 0 #a82a2a, 0 0 0 3px #1a1a1a;
+}
+
+#gl {
+  pointer-events: none;
+  font-size: clamp(20px, 6vw, 48px);
+  color: #ffe14a;
+  text-shadow: 4px 4px 0 #b8322a;
+}
