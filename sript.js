@@ -284,10 +284,23 @@ window.addEventListener('keyup',e=>{keys[e.code]=false;});
 cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=(e.clientX-r.left)*(W/r.width);mouse.y=(e.clientY-r.top)*(H/r.height);});
 cv.addEventListener('mousedown',e=>{if(e.button===0)act.shot=true;});
 
-menu.querySelectorAll('button').forEach(b=>{
-    b.addEventListener('click',()=>{
-        AP=LV[b.dataset.l];$('lv').textContent=AP.n;score=[0,0];time=120;
-        build();reset(0);menu.hidden=true;state='play';cv.focus();
+/* ===== ADICIONE OU SUBSTITUA APENAS ESTE TRECHO NO FINAL DO SEU SCRIPT.JS ===== */
+
+// Configuração corrigida dos botões de dificuldade para o jogo começar ao clicar
+menu.querySelectorAll('button').forEach(b => {
+    b.addEventListener('click', () => {
+        const nivelSelecionado = b.getAttribute('data-l'); // Pega o modo (facil, medio, dificil)
+        if (LV[nivelSelecionado]) {
+            AP = LV[nivelSelecionado];
+            $('lv').textContent = AP.n; // Atualiza o texto no HUD
+            score =;             // Zera o placar com os colchetes certos
+            time = 120;                 // Define os 2 minutos de jogo
+            build();                    // Monta os times em campo
+            reset(0);                   // Posiciona a bola no meio
+            menu.hidden = true;         // Esconde o menu inicial
+            state = 'play';             // Muda o estado para jogando
+            cv.focus();                 // Dá foco no campo para os comandos funcionarem
+        }
     });
 });
 
