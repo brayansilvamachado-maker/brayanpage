@@ -243,3 +243,53 @@ if (document.readyState === 'loading') {
 } else {
  inicializarJogo();
 }
+
+.3); if(Math.random()<c){take(q);break;}}}}else{b.vx*=Math.exp(-.8*dt);b.vy*=Math.exp(-.8*dt);b.x+=b.vx*dt;b.y+=b.vy*dt;for(const p of all){if(p.cd<=0&&Math.hypot(p.x-b.x,p.y-b.y)<6){take(p);break;}}if(b.y>CY-GH/2&&b.y<CY+GH/2){if(b.x<PX){goal(1)}else if(b.x>PR){goal(0)}}else{if(b.x<PX){b.x=PX;b.vx*=-0.5}if(b.x>PR){b.x=PR;b.vx*=-0.5}}if(b.y<PY){b.y=PY;b.vy*=-0.5}if(b.y>PB){b.y=PB;b.vy*=-0.5}}
+}
+
+function draw(){
+    g.fillStyle='#2b5f31';g.fillRect(0,0,W,H);
+    g.strokeStyle='rgba(255,255,255,0.4)';g.lineWidth=1;
+    g.strokeRect(PX,PY,PW,PH);g.beginPath();g.moveTo(PX+PW/2,PY);g.lineTo(PX+PW/2,PB);g.stroke();
+    g.beginPath();g.arc(PX+PW/2,CY,25,0,Math.PI*2);g.stroke();
+    g.fillStyle='#17261a';g.fillRect(PX-4,CY-GH/2,4,GH);g.fillRect(PR,CY-GH/2,4,GH);
+    
+    all.forEach(p=>{
+        g.fillStyle=p.team?'#ff5d5d':(p===ctrl?'#2f6fe0':'#ffffff');
+        g.beginPath();g.arc(p.x,p.y,4,0,Math.PI*2);g.fill();g.stroke();
+        g.fillStyle='#000';g.fillRect(p.x-2+p.fx*2,p.y-2+p.fy*2,1,1);
+    });
+    
+    g.fillStyle='#ffffff';g.beginPath();g.arc(ball.x,ball.y,2,0,Math.PI*2);g.fill();g.stroke();
+    
+    $('sc').textContent=score[0]+' x '+score[1];
+    let m=Math.floor(time/60),s=Math.floor(time%60);
+    $('tm').textContent=m+':'+(s<10?'0':'')+s;
+}
+
+let lastT=performance.now();
+function loop(t){
+    let dt=(t-lastT)/1000;lastT=t;if(dt>.1)dt=.1;
+    if(state==='play'){
+        time-=dt;if(time<=0){time=0;endGame()}
+        step(dt);
+    }else if(state==='goal'){
+        step(dt*0.2);gt-=dt;if(gt<=0){gl.hidden=true;state='play';reset(pk)}
+    }
+    draw();requestAnimationFrame(loop);
+}
+
+window.addEventListener('keydown',e=>{keys[e.code]=true;if(e.code==='Space')act.pass=true;if(e.code==='Escape')state='menu';});
+window.addEventListener('keyup',e=>{keys[e.code]=false;});
+cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=(e.clientX-r.left)*(W/r.width);mouse.y=(e.clientY-r.top)*(H/r.height);});
+cv.addEventListener('mousedown',e=>{if(e.button===0)act.shot=true;});
+
+menu.querySelectorAll('button').forEach(b=>{
+    b.addEventListener('click',()=>{
+        AP=LV[b.dataset.l];$('lv').textContent=AP.n;score=[0,0];time=120;
+        build();reset(0);menu.hidden=true;state='play';cv.focus();
+    });
+});
+
+$('fs-btn').addEventListener('click',()=>{if(cv.requestFullscreen){cv.requestFullscreen()}else if(cv.webkitRequestFullscreen){cv.webkitRequestFullscreen()}});
+build();requestAnimationFrame(loop);
