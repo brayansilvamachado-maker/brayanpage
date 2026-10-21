@@ -187,8 +187,6 @@ function step(dt){
     }
 }
 
-/* ===== ADICIONE ESTE FINAL COMPLETO NO SEU ARQUIVO SCRIPT.JS ===== */
-
 function draw(){
     g.fillStyle='#2e7d32';g.fillRect(0,0,W,H);
     g.strokeStyle='rgba(255,255,255,0.4)';g.lineWidth=1;

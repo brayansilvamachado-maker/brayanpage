@@ -620,8 +620,8 @@ canvas#c {
 
 #wrap {
     position: relative;
-    width: 640px;   /* Dobro do tamanho original para ampliar o negócio */
-    height: 368px;  /* Dobro do tamanho original para ampliar o negócio */
+    width: 640px;   
+    height: 368px;  
     margin: 0 auto 140px auto; 
     border: 4px solid #141619;
     border-radius: 12px;
@@ -630,7 +630,6 @@ canvas#c {
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* Interface Superior */
 #hud {
     position: absolute;
     top: 0;
@@ -653,7 +652,6 @@ canvas#c {
     font-weight: bold;
 }
 
-/* Canvas do Campo */
 #c {
     display: block;
     width: 100%;
@@ -662,7 +660,6 @@ canvas#c {
     background-color: #2e7d32; 
 }
 
-/* Banner de Gol */
 #gl {
     position: absolute;
     top: 50%;
@@ -679,7 +676,6 @@ canvas#c {
     box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-/* Pop-up do Menu Interno */
 #menu {
     position: absolute;
     top: 0;
@@ -734,3 +730,4 @@ canvas#c {
     color: #141619;
     border-color: rgb(0, 255, 191);
 }
+
