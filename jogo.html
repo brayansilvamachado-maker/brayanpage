@@ -22,44 +22,41 @@
         <h2 class="titulo_site">Página de Brayan Vinicius</h2>
     </header>
 
-    <!-- ÁREA PRINCIPAL DO JOGO -->
-    <main style="padding: 40px 15px; text-align: center; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-        
-        <h1 class="secao-titulo" style="margin-top: 0; margin-bottom: 20px;">
-            Pixel Soccer - Copa 2026
-        </h1>
-        
-        <!-- Botão Tela Cheia -->
-        <button id="fs-btn">TELA CHEIA</button>
+<!--jogo-->
+<!-- Botão Tela Cheia (sem onclick inline) -->
+<button id="fs-btn">TELA CHEIA</button>
 
-        <!-- Container do Jogo -->
-        <div id="wrap">
-            <div id="hud">
-                <span id="sc">0 x 0</span>
-                <span id="tm">2:00</span>
-                <span id="lv">MÉDIO</span>
-            </div>
+<!-- Container Principal do Jogo -->
+<div id="wrap">
+  <div id="hud">
+    <span id="sc">0 x 0</span>
+    <span id="tm">2:00</span>
+    <span id="lv">MÉDIO</span>
+  </div>
 
-            <canvas id="c" width="320" height="184" tabindex="0"></canvas>
+  <canvas id="c" width="320" height="184" tabindex="0"></canvas>
 
-            <div id="gl" hidden>GOL!</div>
+  <div id="gl" hidden>GOL!</div>
 
-            <div id="menu">
-                <h1 id="mt">PIXEL SOCCER</h1>
-                <p id="mm">Escolha o nível do robô e jogue!</p>
-                <div class="row">
-                    <button data-l="facil">FÁCIL</button>
-                    <button data-l="medio">MÉDIO</button>
-                    <button data-l="dificil">DIFÍCIL</button>
-                </div>
-                <p style="margin-top: 15px; font-size: 10px; color: #6c757d; line-height: 1.5;">
-                    WASD / SETAS: mover<br>
-                    MOUSE: mirar | CLIQUE: chutar<br>
-                    ESPAÇO: passar | ESC: menu
-                </p>
-            </div>
-        </div>
-    </main>
+  <div id="menu">
+    <h1 id="mt">PIXEL SOCCER</h1>
+    <p id="mm">Escolha o nível do robô e jogue!</p>
+    <div class="row">
+      <button data-l="facil">FÁCIL</button>
+      <button data-l="medio">MÉDIO</button>
+      <button data-l="dificil">DIFÍCIL</button>
+    </div>
+    <p>
+      WASD / SETAS: mover<br>
+      MOUSE: mirar<br>
+      ESPAÇO: passar<br>
+      CLIQUE: chutar<br>
+      ESC: menu
+    </p>
+  </div>
+</div>
+
+<script src="script.js"></script>
 
     <!-- RODAPÉ DA PÁGINA -->
     <footer class="escola">
