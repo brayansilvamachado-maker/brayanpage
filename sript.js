@@ -187,6 +187,8 @@ function step(dt){
     }
 }
 
+/* ===== ADICIONE ESTE FINAL COMPLETO NO SEU ARQUIVO SCRIPT.JS ===== */
+
 function draw(){
     g.fillStyle='#2e7d32';g.fillRect(0,0,W,H);
     g.strokeStyle='rgba(255,255,255,0.4)';g.lineWidth=1;
@@ -203,3 +205,33 @@ function draw(){
     g.fillStyle='#fff';g.beginPath();g.arc(ball.x,ball.y,2,0,Math.PI*2);g.fill();g.stroke();
     
     $('sc').textContent=score[0]+' x '+score[1];
+    let m=Math.floor(time/60),s=Math.floor(time%60);
+    $('tm').textContent=m+':'+(s<10?'0':'')+s;
+}
+
+let lastT=performance.now();
+function loop(t){
+    let dt=(t-lastT)/1000;lastT=t;if(dt>.1)dt=.1;
+    if(state==='play'){
+        time-=dt;if(time<=0){time=0;endGame()}
+        step(dt);
+    }else if(state==='goal'){
+        step(dt*0.2);gt-=dt;if(gt<=0){gl.hidden=true;state='play';reset(pk)}
+    }
+    draw();requestAnimationFrame(loop);
+}
+
+window.addEventListener('keydown',e=>{keys[e.code]=true;if(e.code==='Space')act.pass=true;if(e.code==='Escape')state='menu';});
+window.addEventListener('keyup',e=>{keys[e.code]=false;});
+cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=(e.clientX-r.left)*(W/r.width);mouse.y=(e.clientY-r.top)*(H/r.height);});
+cv.addEventListener('mousedown',e=>{if(e.button===0)act.shot=true;});
+
+menu.querySelectorAll('button').forEach(b=>{
+    b.addEventListener('click',()=>{
+        AP=LV[b.dataset.l];$('lv').textContent=AP.n;score=[0,0];time=120;
+        build();reset(0);menu.hidden=true;state='play';cv.focus();
+    });
+});
+
+$('fs-btn').addEventListener('click',()=>{if(cv.requestFullscreen){cv.requestFullscreen()}else if(cv.webkitRequestFullscreen){cv.webkitRequestFullscreen()}});
+build();requestAnimationFrame(loop);
